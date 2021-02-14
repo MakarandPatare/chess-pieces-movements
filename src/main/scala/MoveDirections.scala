@@ -25,13 +25,13 @@ object Directions {
  */
 object HorseDirections {
   case object HFR extends Direction { val shift = (2, 1) } // 2 Forward 1 Right
-  case object HRF extends Direction { val shift = (1, 1) } // 2 Right 1 Forward
+  case object HRF extends Direction { val shift = (1, 2) } // 2 Right 1 Forward
   case object HBR extends Direction { val shift = (-2, 1) } // 2 Backward 1 Right
   case object HRB extends Direction { val shift = (-1, 2) } // 2 Right 1 Backward
   case object HBL extends Direction { val shift = (-2, -1) } // 2 Backward 1 Left
   case object HLB extends Direction { val shift = (-1, -2) } // 2 Left 1 Backward
   case object HFL extends Direction { val shift = (2, -1) } // 2 Forward 1 Left
-  case object HLF extends Direction { val shift = (-1, 2) } // 2 Left 1 Forward
+  case object HLF extends Direction { val shift = (1, -2) } // 2 Left 1 Forward
 
   val allHorseDirections = List[Direction](HFR, HRF, HBR, HRB, HBL, HLB, HFL, HLF)
 }
@@ -54,5 +54,9 @@ trait RookMoveDirs extends Move {
 
 trait BishopMoveDirs extends Move {
   override def directions: List[Direction] = List(FR, BR, BL, FL)
+}
+
+trait HorseMoveDirs extends Move {
+  override def directions: List[Direction] = HorseDirections.allHorseDirections
 }
 

@@ -4,4 +4,5 @@ object ChessPieces {
   case object Queen extends MultipleSteps with QueenMoveDirs
   case object Rook extends MultipleSteps with RookMoveDirs
   case object Bishop extends MultipleSteps with BishopMoveDirs
+  case object Horse extends SingleStep with HorseMoveDirs
 }

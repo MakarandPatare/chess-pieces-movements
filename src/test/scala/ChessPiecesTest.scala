@@ -1,5 +1,5 @@
 import ChessMovementsApp.parseInput
-import ChessPieces.{Bishop, King, Pawn, Queen, Rook}
+import ChessPieces._
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
@@ -40,5 +40,11 @@ class ChessPiecesTest extends AnyFunSuite with Matchers {
     moves shouldBe expectedPositions
   }
 
+  test("Horse Moves") {
+    val input = parseInput("Horse E3")
+    val moves = Horse.possibleMoves(input._2)
+    val expectedPositions = "G4,F5,C4,D5,C2,D1,G2,F1"
+    moves shouldBe expectedPositions
+  }
 }
 

@@ -14,6 +14,4 @@ object ChessMovementsApp extends App {
       case _ => ("", Position(' ', 0))
     }
   }
-
-  val input = parseInput("Pawn D5")
 }
