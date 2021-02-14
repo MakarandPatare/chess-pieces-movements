@@ -1,3 +1,5 @@
+import Directions._
+
 sealed trait Direction {
   val shift : (Int, Int)
 }
@@ -31,7 +33,26 @@ object HorseDirections {
   case object HFL extends Direction { val shift = (2, -1) } // 2 Forward 1 Left
   case object HLF extends Direction { val shift = (-1, 2) } // 2 Left 1 Forward
 
-  val horseDirections = List[Direction](HFR, HRF, HBR, HRB, HBL, HLB, HFL, HLF)
+  val allHorseDirections = List[Direction](HFR, HRF, HBR, HRB, HBL, HLB, HFL, HLF)
 }
 
+trait PawnMoveDirs extends Move {
+  def directions = List(F)
+}
+
+trait KingMoveDirs extends Move {
+  def directions = Directions.allButHorse
+}
+
+trait QueenMoveDirs extends Move {
+  override def directions: List[Direction] = Directions.allButHorse
+}
+
+trait RookMoveDirs extends Move {
+  override def directions: List[Direction] = List(F, R, B, L)
+}
+
+trait BishopMoveDirs extends Move {
+  override def directions: List[Direction] = List(FR, BR, BL, FL)
+}
 

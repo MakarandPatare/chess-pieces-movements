@@ -1,5 +1,4 @@
 import ChessMovementsApp.Position
-import Directions.F
 
 trait Move {
   implicit def int2Char(x : Int) : Char = x.toChar
@@ -25,10 +24,6 @@ trait SingleStep extends Move {
   override def maxSteps: Int = 1
 }
 
-trait PawnMoveDirs extends Move {
-  def directions = List(F)
-}
-
-trait KingMoveDirs extends Move {
-  def directions = Directions.allButHorse
+trait MultipleSteps extends Move {
+  override def maxSteps: Int = 8
 }
