@@ -28,3 +28,7 @@ trait SingleStep extends Move {
 trait PawnMoveDirs extends Move {
   def directions = List(F)
 }
+
+trait KingMoveDirs extends Move {
+  def directions = Directions.allButHorse
+}
