@@ -1,5 +1,4 @@
 import ChessMovementsApp.parseInput
-import ChessPieces._
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -58,10 +57,12 @@ class ChessPiecesTest extends AnyFunSpec with Matchers {
       moves shouldBe expectedPositions
     }
 
-    it("Should return less moves when King is at the last file") {
+    it("Should return five moves when King is at the last file") {
       val input = parseInput("King H5")
       val moves = King.possibleMoves(input.position)
       val expectedPositions = "H6,G6,G5,G4,H4"
+      val positionCount = expectedPositions.split(",").length
+      positionCount shouldBe 5
       moves shouldBe expectedPositions
     }
 
@@ -72,10 +73,21 @@ class ChessPiecesTest extends AnyFunSpec with Matchers {
       moves shouldBe expectedPositions
     }
 
-    it("Should return less moves when Horse is in the corner") {
+    it("Should return two moves when Horse is in the corner") {
       val input = parseInput("Horse A1")
       val moves = Horse.possibleMoves(input.position)
       val expectedPositions = "C2,B3"
+      val positionCount = expectedPositions.split(",").length
+      positionCount shouldBe 2
+      moves shouldBe expectedPositions
+    }
+
+    it("Should return three moves when Horse is on the edge") {
+      val input = parseInput("Horse D1")
+      val moves = Horse.possibleMoves(input.position)
+      val expectedPositions = "F2,E3,B2,C3"
+      val positionCount = expectedPositions.split(",").length
+      positionCount shouldBe 4
       moves shouldBe expectedPositions
     }
   }

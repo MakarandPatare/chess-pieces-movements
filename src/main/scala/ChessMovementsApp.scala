@@ -1,5 +1,3 @@
-import ChessPieces._
-
 object ChessMovementsApp extends App {
 
   case class Position(file: Char, rank: Int) {
