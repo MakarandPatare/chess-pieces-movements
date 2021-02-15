@@ -4,6 +4,6 @@ trait Grid {
 }
 
 object Chessboard extends Grid {
-  val rows = ('A' to 'H').toArray
-  val columns = (1 to 8).toArray
+  val rows: Array[Char] = ('A' to 'H').toArray
+  val columns: Array[Int] = (1 to 8).toArray
 }
