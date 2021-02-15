@@ -40,3 +40,16 @@ Output – “G4, F5, D5, C4, C2, D1, F1”
 Assumption:
 
 Assume that the board is empty. This means that the pawn cannot move diagonally.
+
+Solution: 
+
+Setup: 
+
+1. git clone
+2. sbt clean compile
+3. sbt test
+
+Running/Testing the code: 
+
+• ChessMovementsApp object is the entry point and you can call output method with desired inputs or 
+• You can run test cases and modify them for testing different scenarios
