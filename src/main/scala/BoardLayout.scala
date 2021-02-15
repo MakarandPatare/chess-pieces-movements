@@ -1,9 +1,9 @@
 trait Grid {
-  val file: Array[Char]
-  val rank: Array[Int]
+  val rows: Array[Char]
+  val columns: Array[Int]
 }
 
 object Chessboard extends Grid {
-  val file = ('A' to 'H').toArray
-  val rank = (1 to 8).toArray
+  val rows = ('A' to 'H').toArray
+  val columns = (1 to 8).toArray
 }

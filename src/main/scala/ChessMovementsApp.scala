@@ -1,7 +1,7 @@
 object ChessMovementsApp extends App {
 
-  case class Position(file: Char, rank: Int) {
-    override def toString: String = s"$file$rank"
+  case class Position(row: Char, column: Int) {
+    override def toString: String = s"$row$column"
   }
 
   case class Piece(name: String, position: Position)
@@ -19,8 +19,8 @@ object ChessMovementsApp extends App {
 
   def output(inputString: String): String = {
     val input = parseInput(inputString)
-    if (!Chessboard.file.contains(input.position.file) || !Chessboard.rank.contains(input.position.rank))
-      "Invalid input: Please check the file and rank"
+    if (!Chessboard.rows.contains(input.position.row) || !Chessboard.columns.contains(input.position.column))
+      "Invalid input: Please check the row and column"
     else input.name match {
       case Pawn.name => Pawn.possibleMoves(input.position)
       case King.name => King.possibleMoves(input.position)
